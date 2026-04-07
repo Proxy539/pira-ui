@@ -1,0 +1,16 @@
+[      88ms] [INFO] Download the React DevTools for a better development experience: https://react.dev/link/react-devtools @ http://localhost:3000/static/js/bundle.js:17066
+[      94ms] [TIMESTAMP] Blocking Track @ http://localhost:3000/static/js/bundle.js:10262
+[      94ms] [TIMESTAMP] Transition Track @ http://localhost:3000/static/js/bundle.js:10262
+[      94ms] [TIMESTAMP] Suspense Track @ http://localhost:3000/static/js/bundle.js:10262
+[      94ms] [TIMESTAMP] Idle Track @ http://localhost:3000/static/js/bundle.js:10262
+[      94ms] [TIMESTAMP] Render @ http://localhost:3000/static/js/bundle.js:4455
+[     100ms] [TIMESTAMP] Waiting for Paint @ http://localhost:3000/static/js/bundle.js:10952
+[     100ms] [TIMESTAMP] App @ http://localhost:3000/static/js/bundle.js:4390
+[     100ms] [TIMESTAMP] ProjectList @ http://localhost:3000/static/js/bundle.js:4390
+[     117ms] [TIMESTAMP] Blocking Track @ http://localhost:3000/static/js/bundle.js:10262
+[     117ms] [TIMESTAMP] Transition Track @ http://localhost:3000/static/js/bundle.js:10262
+[     117ms] [TIMESTAMP] Suspense Track @ http://localhost:3000/static/js/bundle.js:10262
+[     117ms] [TIMESTAMP] Idle Track @ http://localhost:3000/static/js/bundle.js:10262
+[     117ms] [TIMESTAMP] Render @ http://localhost:3000/static/js/bundle.js:4455
+[     122ms] [TIMESTAMP] Waiting for Paint @ http://localhost:3000/static/js/bundle.js:10952
+[     122ms] [TIMESTAMP] ProjectList @ http://localhost:3000/static/js/bundle.js:4390

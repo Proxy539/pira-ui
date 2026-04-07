@@ -1,0 +1,62 @@
+.ticket-card {
+  background: #fff;
+  border: 1px solid #dfe1e6;
+  border-radius: 3px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+}
+
+.ticket-card:hover {
+  background-color: #f4f5f7;
+}
+
+.ticket-title {
+  margin: 0 0 8px 0;
+  font-size: 13px;
+  color: #172b4d;
+  line-height: 1.4;
+}
+
+.ticket-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.ticket-type-badge {
+  font-size: 10px;
+  font-weight: 600;
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.ticket-key {
+  font-size: 11px;
+  color: #5e6c84;
+  font-weight: 500;
+}
+
+.ticket-priority {
+  font-size: 11px;
+  font-weight: 500;
+  margin-left: auto;
+}
+
+.ticket-assignee {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #0052cc;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}

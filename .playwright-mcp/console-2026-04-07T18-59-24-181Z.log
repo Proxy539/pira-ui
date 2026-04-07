@@ -1,0 +1,23 @@
+[      81ms] [INFO] Download the React DevTools for a better development experience: https://react.dev/link/react-devtools @ http://localhost:3000/static/js/bundle.js:17066
+[      83ms] [TIMESTAMP] Blocking Track @ http://localhost:3000/static/js/bundle.js:10262
+[      83ms] [TIMESTAMP] Transition Track @ http://localhost:3000/static/js/bundle.js:10262
+[      83ms] [TIMESTAMP] Suspense Track @ http://localhost:3000/static/js/bundle.js:10262
+[      83ms] [TIMESTAMP] Idle Track @ http://localhost:3000/static/js/bundle.js:10262
+[      88ms] [TIMESTAMP] Waiting for Paint @ http://localhost:3000/static/js/bundle.js:10952
+[      88ms] [TIMESTAMP] App @ http://localhost:3000/static/js/bundle.js:4390
+[      88ms] [TIMESTAMP] ProjectList @ http://localhost:3000/static/js/bundle.js:4390
+[     101ms] [TIMESTAMP] Blocking Track @ http://localhost:3000/static/js/bundle.js:10262
+[     101ms] [TIMESTAMP] Transition Track @ http://localhost:3000/static/js/bundle.js:10262
+[     101ms] [TIMESTAMP] Suspense Track @ http://localhost:3000/static/js/bundle.js:10262
+[     101ms] [TIMESTAMP] Idle Track @ http://localhost:3000/static/js/bundle.js:10262
+[     104ms] [TIMESTAMP] Waiting for Paint @ http://localhost:3000/static/js/bundle.js:10952
+[     104ms] [TIMESTAMP] ProjectList @ http://localhost:3000/static/js/bundle.js:4390
+[   50592ms] [TIMESTAMP] Blocking Track @ http://localhost:3000/static/js/bundle.js:10262
+[   50593ms] [TIMESTAMP] Transition Track @ http://localhost:3000/static/js/bundle.js:10262
+[   50593ms] [TIMESTAMP] Suspense Track @ http://localhost:3000/static/js/bundle.js:10262
+[   50593ms] [TIMESTAMP] Idle Track @ http://localhost:3000/static/js/bundle.js:10262
+[   50597ms] [TIMESTAMP] Render @ http://localhost:3000/static/js/bundle.js:4455
+[   50598ms] [TIMESTAMP] Commit @ http://localhost:3000/static/js/bundle.js:10827
+[   50598ms] [TIMESTAMP] Waiting @ http://localhost:3000/static/js/bundle.js:10952
+[   50599ms] [TIMESTAMP] ProjectList @ http://localhost:3000/static/js/bundle.js:4390
+[   50599ms] [TIMESTAMP] Remaining Effects @ http://localhost:3000/static/js/bundle.js:10968

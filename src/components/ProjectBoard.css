@@ -1,0 +1,127 @@
+.board-page {
+  min-height: 100vh;
+  background-color: #f4f5f7;
+  display: flex;
+  flex-direction: column;
+}
+
+.board-header {
+  background-color: #fff;
+  border-bottom: 1px solid #dfe1e6;
+  padding: 16px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #0052cc;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.back-btn:hover {
+  text-decoration: underline;
+}
+
+.board-header-title h1 {
+  margin: 0 0 4px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #172b4d;
+}
+
+.board-header-title p {
+  margin: 0;
+  font-size: 13px;
+  color: #5e6c84;
+}
+
+.board-subheader {
+  padding: 12px 24px 8px;
+  border-bottom: 1px solid #dfe1e6;
+  background-color: #fff;
+}
+
+.board-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #172b4d;
+  border-bottom: 2px solid #0052cc;
+  padding-bottom: 10px;
+}
+
+.board-status {
+  padding: 24px;
+  font-size: 14px;
+  color: #5e6c84;
+}
+
+.board-error {
+  color: #de350b;
+}
+
+.board-columns {
+  display: flex;
+  gap: 12px;
+  padding: 20px 24px;
+  flex: 1;
+  overflow-x: auto;
+}
+
+.board-column {
+  flex: 1;
+  min-width: 220px;
+  background-color: #ebecf0;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 180px);
+}
+
+.column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  flex-shrink: 0;
+}
+
+.column-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #5e6c84;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.column-count {
+  font-size: 11px;
+  color: #5e6c84;
+  background-color: #dfe1e6;
+  border-radius: 10px;
+  padding: 1px 7px;
+}
+
+.column-tickets {
+  padding: 0 8px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.column-empty {
+  font-size: 12px;
+  color: #97a0af;
+  text-align: center;
+  padding: 12px 0;
+  margin: 0;
+}
