@@ -1,0 +1,8 @@
+.project-list {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
