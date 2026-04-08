@@ -1,21 +1,22 @@
 .project-list-page {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 0 32px 60px;
+  width: 100%;
+  max-width: 660px;
+  margin: 0;
+  padding: 0 24px 40px;
 }
 
 .project-list-header {
-  padding: 48px 0 24px;
-  margin-bottom: 24px;
+  padding: 36px 0 20px;
+  margin-bottom: 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .project-list-header h1 {
   margin: 0;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 700;
   background: linear-gradient(90deg, #a78bfa, #60a5fa);
   -webkit-background-clip: text;
@@ -52,4 +53,110 @@
 
 .list-error {
   color: #f87171;
+}
+
+.create-project-btn {
+  margin-left: auto;
+  background: linear-gradient(90deg, #a78bfa, #60a5fa);
+  color: #0f0c29;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: opacity 0.15s;
+}
+
+.create-project-btn:hover {
+  opacity: 0.85;
+}
+
+.create-project-form {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(224, 230, 240, 0.7);
+  letter-spacing: 0.3px;
+}
+
+.form-field input,
+.form-field textarea {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #e0e6f0;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: #a78bfa;
+}
+
+.form-error {
+  color: #f87171;
+  font-size: 13px;
+  margin: 0;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.form-submit-btn {
+  background: linear-gradient(90deg, #a78bfa, #60a5fa);
+  color: #0f0c29;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 22px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.form-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-cancel-btn {
+  background: transparent;
+  color: rgba(224, 230, 240, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 9px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.form-cancel-btn:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #e0e6f0;
 }

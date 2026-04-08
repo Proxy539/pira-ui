@@ -8,5 +8,15 @@ export async function fetchProjects() {
     }
     return res.json();
   });
-  
+}
+
+export async function createProject({ title, description }) {
+  return fetch(BASE_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ title, description }),
+  }).then(res => {
+    if (!res.ok) throw new Error('Failed to create project');
+    return res.json();
+  });
 }
