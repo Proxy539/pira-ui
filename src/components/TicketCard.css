@@ -1,21 +1,41 @@
 .ticket-card {
-  background: #fff;
-  border: 1px solid #dfe1e6;
-  border-radius: 3px;
-  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 10px;
+  padding: 12px 14px;
   cursor: pointer;
-  transition: background-color 0.1s ease;
+  transition: all 0.18s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.ticket-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.06), rgba(96, 165, 250, 0.06));
+  opacity: 0;
+  transition: opacity 0.18s ease;
 }
 
 .ticket-card:hover {
-  background-color: #f4f5f7;
+  border-color: rgba(167, 139, 250, 0.35);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(167, 139, 250, 0.1);
+}
+
+.ticket-card:hover::before {
+  opacity: 1;
 }
 
 .ticket-title {
-  margin: 0 0 8px 0;
+  margin: 0 0 10px 0;
   font-size: 13px;
-  color: #172b4d;
-  line-height: 1.4;
+  font-weight: 500;
+  color: #e0e6f0;
+  line-height: 1.45;
+  position: relative;
+  z-index: 1;
 }
 
 .ticket-meta {
@@ -23,27 +43,29 @@
   align-items: center;
   gap: 6px;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 }
 
 .ticket-type-badge {
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 700;
   color: #fff;
-  padding: 2px 5px;
-  border-radius: 3px;
+  padding: 2px 7px;
+  border-radius: 5px;
   text-transform: uppercase;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.4px;
 }
 
 .ticket-key {
   font-size: 11px;
-  color: #5e6c84;
+  color: rgba(224, 230, 240, 0.4);
   font-weight: 500;
 }
 
 .ticket-priority {
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 600;
   margin-left: auto;
 }
 
@@ -51,12 +73,13 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background-color: #0052cc;
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
   color: #fff;
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(124, 58, 237, 0.4);
 }
