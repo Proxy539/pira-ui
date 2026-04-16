@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './ProjectBoard.css';
 import { fetchTickets } from '../api/tickets';
+import { updateProject } from '../api/projects';
 import TicketCard from './TicketCard';
 
 const COLUMNS = [
@@ -29,10 +30,43 @@ function normalizeStatus(status) {
   return STATUS_MAP[status?.toLowerCase()] || 'todo';
 }
 
-function ProjectBoard({ project, onBack }) {
+function ProjectBoard({ project, onBack, onProjectUpdate }) {
   const [tickets, setTickets] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const [editing, setEditing] = useState(false);
+  const [editTitle, setEditTitle] = useState('');
+  const [editDescription, setEditDescription] = useState('');
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState(null);
+
+  function startEdit() {
+    setEditTitle(project.title);
+    setEditDescription(project.description || '');
+    setSaveError(null);
+    setEditing(true);
+  }
+
+  function cancelEdit() {
+    setEditing(false);
+  }
+
+  function saveEdit() {
+    if (!editTitle.trim()) return;
+    setSaving(true);
+    setSaveError(null);
+    updateProject(project.id, { title: editTitle.trim(), description: editDescription.trim() })
+      .then(updated => {
+        setSaving(false);
+        setEditing(false);
+        onProjectUpdate(updated);
+      })
+      .catch(err => {
+        setSaving(false);
+        setSaveError(err.message);
+      });
+  }
 
   useEffect(() => {
     setLoading(true);
@@ -59,11 +93,43 @@ function ProjectBoard({ project, onBack }) {
         <button className="back-btn" onClick={onBack}>
           &#8592; Projects
         </button>
-        <div className="board-header-title">
+        <button className="project-frame" onClick={startEdit}>
           <h1>{project.title}</h1>
           {project.description && <p>{project.description}</p>}
-        </div>
+        </button>
       </div>
+
+      {editing && (
+        <div className="edit-modal-overlay" onClick={cancelEdit}>
+          <div className="edit-modal" onClick={e => e.stopPropagation()}>
+            <h2 className="edit-modal-heading">Edit Project</h2>
+            <div className="edit-modal-fields">
+              <input
+                className="edit-title-input"
+                value={editTitle}
+                onChange={e => setEditTitle(e.target.value)}
+                placeholder="Project title"
+                autoFocus
+              />
+              <textarea
+                className="edit-desc-input"
+                value={editDescription}
+                onChange={e => setEditDescription(e.target.value)}
+                placeholder="Project description"
+              />
+            </div>
+            {saveError && <p className="edit-error">{saveError}</p>}
+            <div className="edit-actions">
+              <button className="edit-save-btn" onClick={saveEdit} disabled={saving || !editTitle.trim()}>
+                {saving ? 'Saving...' : 'Save'}
+              </button>
+              <button className="edit-cancel-btn" onClick={cancelEdit} disabled={saving}>
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="board-subheader">
         <span className="board-label">Board</span>
