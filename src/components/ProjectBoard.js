@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './ProjectBoard.css';
-import { fetchTickets } from '../api/tickets';
+import { fetchTickets, createTicket } from '../api/tickets';
 import { updateProject } from '../api/projects';
 import TicketCard from './TicketCard';
 
@@ -41,6 +41,14 @@ function ProjectBoard({ project, onBack, onProjectUpdate }) {
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState(null);
 
+  const [creating, setCreating] = useState(false);
+  const [newTitle, setNewTitle] = useState('');
+  const [newDescription, setNewDescription] = useState('');
+  const [newType, setNewType] = useState('task');
+  const [newPriority, setNewPriority] = useState('medium');
+  const [createSaving, setCreateSaving] = useState(false);
+  const [createError, setCreateError] = useState(null);
+
   function startEdit() {
     setEditTitle(project.title);
     setEditDescription(project.description || '');
@@ -50,6 +58,40 @@ function ProjectBoard({ project, onBack, onProjectUpdate }) {
 
   function cancelEdit() {
     setEditing(false);
+  }
+
+  function openCreate() {
+    setNewTitle('');
+    setNewDescription('');
+    setNewType('task');
+    setNewPriority('medium');
+    setCreateError(null);
+    setCreating(true);
+  }
+
+  function cancelCreate() {
+    setCreating(false);
+  }
+
+  function submitCreate() {
+    if (!newTitle.trim()) return;
+    setCreateSaving(true);
+    setCreateError(null);
+    createTicket(project.id, {
+      title: newTitle.trim(),
+      description: newDescription.trim(),
+      type: newType.toUpperCase(),
+      priority: newPriority.toUpperCase(),
+    })
+      .then(ticket => {
+        setTickets(prev => [...prev, ticket]);
+        setCreating(false);
+        setCreateSaving(false);
+      })
+      .catch(err => {
+        setCreateError(err.message);
+        setCreateSaving(false);
+      });
   }
 
   function saveEdit() {
@@ -131,8 +173,73 @@ function ProjectBoard({ project, onBack, onProjectUpdate }) {
         </div>
       )}
 
+      {creating && (
+        <div className="edit-modal-overlay" onClick={cancelCreate}>
+          <div className="create-ticket-modal" onClick={e => e.stopPropagation()}>
+            <h2 className="edit-modal-heading">Create Ticket</h2>
+            <div className="create-ticket-fields">
+              <input
+                className="edit-title-input"
+                value={newTitle}
+                onChange={e => setNewTitle(e.target.value)}
+                placeholder="Ticket title"
+                autoFocus
+              />
+              <textarea
+                className="edit-desc-input create-ticket-desc"
+                value={newDescription}
+                onChange={e => setNewDescription(e.target.value)}
+                placeholder="Description (optional)"
+              />
+              <div className="create-ticket-selects">
+                <div className="create-ticket-field">
+                  <label>Type</label>
+                  <div className="select-group">
+                    {['task', 'bug', 'story', 'epic'].map(t => (
+                      <button
+                        key={t}
+                        className={`select-chip${newType === t ? ' active' : ''} chip-${t}`}
+                        onClick={() => setNewType(t)}
+                        type="button"
+                      >
+                        {t.charAt(0).toUpperCase() + t.slice(1)}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div className="create-ticket-field">
+                  <label>Priority</label>
+                  <div className="select-group">
+                    {['highest', 'high', 'medium', 'low', 'lowest'].map(p => (
+                      <button
+                        key={p}
+                        className={`select-chip${newPriority === p ? ' active' : ''} chip-priority-${p}`}
+                        onClick={() => setNewPriority(p)}
+                        type="button"
+                      >
+                        {p.charAt(0).toUpperCase() + p.slice(1)}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+            {createError && <p className="edit-error">{createError}</p>}
+            <div className="edit-actions">
+              <button className="edit-save-btn" onClick={submitCreate} disabled={createSaving || !newTitle.trim()}>
+                {createSaving ? 'Creating...' : 'Create'}
+              </button>
+              <button className="edit-cancel-btn" onClick={cancelCreate} disabled={createSaving}>
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="board-subheader">
         <span className="board-label">Board</span>
+        <button className="create-ticket-btn" onClick={openCreate}>+ Create Ticket</button>
       </div>
 
       {loading && <p className="board-status">Loading tickets...</p>}

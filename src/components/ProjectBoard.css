@@ -209,6 +209,9 @@
   padding: 0 28px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .board-label {
@@ -220,6 +223,104 @@
   padding: 12px 4px 10px;
   letter-spacing: 0.4px;
 }
+
+.create-ticket-btn {
+  background: linear-gradient(90deg, #a78bfa, #60a5fa);
+  color: #0f0c29;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+  transition: opacity 0.15s, transform 0.1s;
+}
+
+.create-ticket-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+/* ── Create ticket modal ───────────────────────────────── */
+.create-ticket-modal {
+  background: #1e1b3a;
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  border-radius: 14px;
+  padding: 28px;
+  width: 580px;
+  max-width: calc(100vw - 48px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+}
+
+.create-ticket-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.create-ticket-desc {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.create-ticket-selects {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.create-ticket-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.create-ticket-field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(224, 230, 240, 0.5);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.select-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.select-chip {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: rgba(224, 230, 240, 0.6);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.select-chip:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #e0e6f0;
+}
+
+.chip-task.active   { background: rgba(75, 173, 232, 0.2);  border-color: #4bade8; color: #4bade8; }
+.chip-bug.active    { background: rgba(229, 73, 58, 0.2);   border-color: #e5493a; color: #e5493a; }
+.chip-story.active  { background: rgba(54, 179, 126, 0.2);  border-color: #36b37e; color: #36b37e; }
+.chip-epic.active   { background: rgba(144, 78, 226, 0.2);  border-color: #904ee2; color: #904ee2; }
+
+.chip-priority-highest.active { background: rgba(229, 73, 58, 0.2);  border-color: #e5493a; color: #e5493a; }
+.chip-priority-high.active    { background: rgba(233, 127, 51, 0.2); border-color: #e97f33; color: #e97f33; }
+.chip-priority-medium.active  { background: rgba(246, 195, 67, 0.2); border-color: #f6c343; color: #f6c343; }
+.chip-priority-low.active     { background: rgba(75, 173, 232, 0.2); border-color: #4bade8; color: #4bade8; }
+.chip-priority-lowest.active  { background: rgba(75, 173, 232, 0.12); border-color: rgba(75,173,232,0.5); color: rgba(75,173,232,0.8); }
 
 /* ── Loading / error ───────────────────────────────────── */
 .board-status {
